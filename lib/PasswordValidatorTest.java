@@ -13,8 +13,54 @@ public class PasswordValidatorTest{
             System.out.println("Test Case 1 FAILED: Expected INVALID but got " + result1);
         }
 
+        PasswordStrength result2 = PasswordValidator.validate("phat");
+        if (result2 == PasswordStrength.INVALID) {
+            System.out.println("Test Case 2 Passed: Short password is INVALID."); 
+        } else {
+            System.out.println("Test Case 2 FAILED: Expected INVALID but got " + result2);
+        }
+
+        PasswordStrength result3 = PasswordValidator.validate("00000000");
+        if (result3 == PasswordStrength.WEAK) {
+            System.out.println("Test Case 3 Passed: Having only numbers is WEAk."); 
+        } else {
+            System.out.println("Test Case 3 FAILED: Expected INVALID but got " + result3);
+        }
+
+        PasswordStrength result4 = PasswordValidator.validate("phatnarin");
+        if (result4 == PasswordStrength.WEAK) {
+            System.out.println("Test Case 4 Passed: Having only lowercase letters is WEAK."); 
+        } else {
+            System.out.println("Test Case 4 FAILED: Expected INVALID but got " + result4);
+        }
+
+        PasswordStrength result5 = PasswordValidator.validate("Phatnarin");
+        if (result5 == PasswordStrength.WEAK) {
+            System.out.println("Test Case 5 Passed: Having only alphabets is WEAK."); 
+        } else {
+            System.out.println("Test Case 5 FAILED: Expected INVALID but got " + result5);
+        }
+
+        PasswordStrength result6 = PasswordValidator.validate("PPHAT007");
+        if (result6 == PasswordStrength.MEDIUM) {
+            System.out.println("Test Case 6 Passed: Having alphabets and numbers is MEDIUM."); 
+        } else {
+            System.out.println("Test Case 6 FAILED: Expected INVALID but got " + result6);
+        }
+
+        PasswordStrength result7 = PasswordValidator.validate("Phatdk01");
+        if (result7 == PasswordStrength.STRONG) {
+            System.out.println("Test Case 7 Passed: Having uppercase letters, lowercase letters and number is STRONG."); 
+        } else {
+            System.out.println("Test Case 7 FAILED: Expected INVALID but got " + result7);
+        }
+        
+
+
+
         // --- เขียน Test Case อื่นๆ ต่อ ---
 
         System.out.println("--------------------------------");
     }
 }
+
